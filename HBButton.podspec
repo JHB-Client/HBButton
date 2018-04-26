@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name        = "HBButton"
 
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
 
   s.summary      = "华卓组件化Button"
 
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
 
   s.platform    = :ios
 
-  s.source      = { :git => "https://github.com/jihuaibin2017/HBButton.git", :tag => "0.0.2" }
+  s.source      = { :git => "https://github.com/jihuaibin2017/HBButton.git", :tag => "0.0.3" }
 
   s.source_files  = "HBButton/**/*.{h,m}"
 

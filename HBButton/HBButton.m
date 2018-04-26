@@ -27,7 +27,8 @@ NS_ASSUME_NONNULL_END
 }
 
 - (void)setUpSubViews {
-    UILabel *alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+    UILabel *alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kP(30), kP(30))];
+    alertLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:alertLabel];
     self.alertLabel = alertLabel;
 }
@@ -58,26 +59,26 @@ NS_ASSUME_NONNULL_END
     [super layoutSubviews];
     //
     if (!_isAlertPoint) {
-        [self.alertLabel removeFromSuperview];
+        self.alertLabel.hidden = true;
     } else {
-        
+        self.alertLabel.hidden = false;
         if (self.alertStr) {
             self.alertLabel.text = self.alertStr;
             self.alertLabel.font = self.alertStrFont ? : [UIFont systemFontOfSize:kP(24)];
             self.alertLabel.textColor = self.alertStrColor ? : [UIColor whiteColor];
-            [self.alertLabel sizeToFit];
+            //            [self.alertLabel sizeToFit];
             self.alertLabel.x = self.imageView.right - kP(10);
             self.alertLabel.y = self.imageView.y - self.alertLabel.height * 0.5;
         } else {
             self.alertLabel.x = self.imageView.right - kP(15);
             self.alertLabel.y = self.imageView.y - kP(15);
-            self.alertLabel.width = kP(30);
-            self.alertLabel.height = kP(30);
+            self.alertLabel.width = kP(20);
+            self.alertLabel.height = kP(20);
             
         }
         
         //
-        self.alertLabel.layer.cornerRadius = self.alertCornerRadius ? : kP(15);
+        self.alertLabel.layer.cornerRadius = self.alertCornerRadius ? : self.alertLabel.height * 0.5;
         self.alertLabel.clipsToBounds = true;
         self.alertLabel.backgroundColor = [UIColor redColor];
     }
